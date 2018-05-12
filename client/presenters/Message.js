@@ -93,7 +93,6 @@ const filterBotMessages = (message) => !message.system && message.user && messag
 const findStep = (step) => (_, index) => index === step - 1;
 
 export default class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {

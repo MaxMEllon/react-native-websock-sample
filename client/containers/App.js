@@ -1,14 +1,14 @@
 // @flow
 
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
-import Message from '../presenters/Message'
-import RoomList from '../presenters/RoomList'
+import { createStackNavigator } from 'react-navigation'
+import MessageContainer from './MessageContainer'
+import RoomListContainer from './RoomListContainer'
 
 export default createStackNavigator({
-  RoomList: { screen: RoomList },
-  Message: { screen: Message },
+  RoomList: { screen: RoomListContainer },
+  Message: { screen: MessageContainer },
 }, {
-  initalRouteName: RoomList,
+  initalRouteName: RoomListContainer,
 })
 
