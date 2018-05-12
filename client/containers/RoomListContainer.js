@@ -7,10 +7,6 @@ import RoomList from '../presenters/RoomList'
 import { fetchRooms } from '../actions'
 import Spinner from '../presenters/atoms/Spinner'
 
-type Rooms = {
-  _id: number,
-  name: string,
-}
 
 type Props = {
   rooms: any,
@@ -27,8 +23,8 @@ class RoomListContainer extends Component<Props> {
     if (this.props.rooms === null) this.props.fetchRooms()
   }
 
-  onSelectRoom = (params: Rooms) => {
-    this.props.navigation.navigate('Message', params)
+  onSelectRoom = (_id: number, name: string): any => {
+    this.props.navigation.navigate('Message', { _id, name })
   }
 
   render() {

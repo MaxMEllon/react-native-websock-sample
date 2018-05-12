@@ -1,12 +1,15 @@
+// @flow
+
 import axios from 'axios'
-import { fork, put, take, call, select, takeLatest, takeEvery } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
+import { fork, put, take, call, select, takeLatest, takeEvery } from 'redux-saga/effects'
 import * as actions from '../actions'
+import type { Rooms } from '../types'
 import API from '../fetchr/ChatSampleServer'
 
-function* roomsTask(action) {
+function* roomsTask(action): any {
   try {
-    const rooms = yield call(API.getRooms)
+    const rooms: Rooms = yield call(API.getRooms)
     yield delay(300)
     yield put(actions.successFetchRooms(rooms))
   } catch (e) {
@@ -14,6 +17,6 @@ function* roomsTask(action) {
   }
 }
 
-export default function* rootSaga() {
-  yield takeLatest(actions.fetchRooms._t, roomsTask)
+export default function* rootSaga(): any {
+  yield takeLatest<string, any, any>(actions.fetchRooms._t, roomsTask)
 }

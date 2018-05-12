@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react'
-import { View } from 'react-native'
 import {
   Content,
   List,
@@ -30,7 +29,7 @@ const Room = ({
   time,
   onSelectRoom,
 }: Props) => (
-  <ListItem avator button onPress={() => onSelectRoom({ _id, name })}>
+  <ListItem avator button onPress={() => onSelectRoom(_id, name)}>
     <Body>
       <Text>{name}</Text>
       <Text note>{leatestMessage}</Text>
