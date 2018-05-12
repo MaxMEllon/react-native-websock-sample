@@ -4,8 +4,9 @@
   "private": true,
   "main": "./client/index.js",
   "scripts": {
+    "start": "run-p start:* --print-label",
     "start:server": "cd ./server && npm run start && cd ..",
-    "start": "react-native-scripts start",
+    "start:client": "react-native-scripts start",
     "flow": "flow",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "flow-bin": "^0.72.0",
     "jest-expo": "~27.0.0",
+    "npm-run-all": "^4.1.3",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   }
