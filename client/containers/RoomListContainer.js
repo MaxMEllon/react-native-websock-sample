@@ -12,7 +12,13 @@ type Rooms = {
   name: string,
 }
 
-class RoomListContainer extends Component {
+type Props = {
+  rooms: any,
+  navigation: any,
+  fetchRooms: Function,
+}
+
+class RoomListContainer extends Component<Props> {
   static navigationOptions = {
     title: 'トーク'
   }

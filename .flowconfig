@@ -1,5 +1,4 @@
 [ignore]
-.*/node_modules/.*
 
 [include]
 
@@ -7,7 +6,7 @@
 flow-typed
 
 [options]
-module.name_mapper='^\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.name_mapper='^\(.*\)$' -> '<PROJECT_ROOT>/client/\1'
 module.file_ext=.js
 module.file_ext=.jsx
 module.file_ext=.css

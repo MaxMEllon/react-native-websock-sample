@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import { View } from 'react-native'
 import {
@@ -10,26 +12,16 @@ import {
   Thumbnail,
   Text,
 } from 'native-base';
+import Room from './Room'
 
-const Room = ({
-  _id,
-  name,
-  leatestMessage,
-  time,
-  onSelectRoom,
-}) => (
-  <ListItem avator button onPress={() => onSelectRoom({ _id, name })}>
-    <Body>
-      <Text>{name}</Text>
-      <Text note>{leatestMessage}</Text>
-    </Body>
-    <Right>
-      <Text note>{time}</Text>
-    </Right>
-  </ListItem>
-)
+import type { Rooms } from '../types'
 
-const RoomList = ({ rooms, onSelectRoom }) => (
+type Props = {
+  rooms: Rooms,
+  onSelectRooms: (_id: number, name: string) => any,
+}
+
+const RoomList = ({ rooms, onSelectRoom }: Props) => (
   <Content>
     <List
       dataArray={rooms}

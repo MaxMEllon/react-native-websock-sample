@@ -5,22 +5,21 @@ import {
   successFetchRooms,
   failFetchRooms,
 } from '../actions'
+import type { Rooms, ReducerState } from '../types'
 
-type State = {
-  rooms: any,
-}
+type State = ReducerState
 
 const initialState: State = {
   rooms: null,
 }
 
 const reducer = createReducer(initialState)
-  .case(successFetchRooms, (state, payload) => {
+  .case(successFetchRooms, (state: State, payload: Rooms) => {
     return {
       rooms: payload.rooms,
     }
   })
-  .case(failFetchRooms, (state, payload) => {
+  .case(failFetchRooms, (state: State, payload: Rooms) => {
     return state
   })
 

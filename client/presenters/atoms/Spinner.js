@@ -14,7 +14,7 @@ const Spinner = () => (
       visible={true}
       textContent={'読み込み中'}
       textStyle={{ color: '#fff' }}
-      overlayColor="rgba(0, 0, 0, 0.4)"
+      overlayColor="rgba(0, 0, 0, .1)"
       size="large"
     />
   </Wrapper>
