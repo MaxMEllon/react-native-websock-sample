@@ -1,3 +1,5 @@
+// @flow
+
 export type Room = {
   _id: number,
   name: string,
@@ -7,9 +9,9 @@ export type Room = {
 }
 
 export type Rooms = {
-  rooms?: Array<Room> 
+  rooms: Array<Room> 
 }
 
-type ReducerState = {
-  rooms?: Rooms,
+export type ReducerState = {
+  rooms: ?Array<Room>,
 }
