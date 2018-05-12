@@ -9,5 +9,5 @@ export type Room = {
 }
 
 export type Rooms = {
-  rooms: Array<Room> 
+  rooms: Array<Room>,
 }

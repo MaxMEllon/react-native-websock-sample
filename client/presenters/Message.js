@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Linking } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
+import React, { Component } from 'react'
+import { View, StyleSheet, Linking } from 'react-native'
+import { GiftedChat } from 'react-native-gifted-chat'
 
 const messagesData = [
   {
@@ -20,7 +20,8 @@ const messagesData = [
       _id: 2,
       name: 'React Native',
     },
-    image: 'https://lh3.googleusercontent.com/-uXipYA5hSKc/VVWKiFIvo-I/AAAAAAAAAhQ/vkjLyZNEzUA/w800-h800/1.jpg',
+    image:
+      'https://lh3.googleusercontent.com/-uXipYA5hSKc/VVWKiFIvo-I/AAAAAAAAAhQ/vkjLyZNEzUA/w800-h800/1.jpg',
     sent: true,
     received: true,
   },
@@ -83,49 +84,53 @@ const messagesData = [
     createdAt: new Date(),
     system: true,
   },
-];
+]
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-});
+})
 
-const filterBotMessages = (message) => !message.system && message.user && message.user._id && message.user._id === 2;
-const findStep = (step) => (_, index) => index === step - 1;
+/* eslint no-underscore-dangle: [0] */
+const filterBotMessages = message =>
+  !message.system && message.user && message.user._id && message.user._id === 2
+const findStep = step => (_, index) => index === step - 1
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       messages: [],
       step: 0,
-    };
+    }
 
-    this.onSend = this.onSend.bind(this);
-    this.parsePatterns = this.parsePatterns.bind(this);
+    this.onSend = this.onSend.bind(this)
+    this.parsePatterns = this.parsePatterns.bind(this)
   }
 
   componentWillMount() {
-    this.setState({ messages: messagesData.filter((message) => message.system) });
+    this.setState({ messages: messagesData.filter(message => message.system) })
   }
 
   onSend(messages = []) {
-    const step = this.state.step + 1;
-    this.setState((previousState) => ({
-      messages: GiftedChat.append(previousState.messages, [{ ...messages[0], sent: true, received: true }]),
+    const step = this.state.step + 1
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, [
+        { ...messages[0], sent: true, received: true },
+      ]),
       step,
-    }));
-    setTimeout(() => this.botSend(step), 1500 + Math.round(Math.random() * 1000));
+    }))
+    setTimeout(() => this.botSend(step), 1500 + Math.round(Math.random() * 1000))
   }
 
   botSend(step = 0) {
     const newMessage = messagesData
       .reverse()
       .filter(filterBotMessages)
-      .find(findStep(step));
+      .find(findStep(step))
     if (newMessage) {
-      this.setState((previousState) => ({
+      this.setState(previousState => ({
         messages: GiftedChat.append(previousState.messages, newMessage),
-      }));
+      }))
     }
   }
 
@@ -136,7 +141,7 @@ export default class App extends Component {
         style: { ...linkStyle, color: 'orange' },
         onPress: () => Linking.openURL('http://gifted.chat'),
       },
-    ];
+    ]
   }
   render() {
     return (
@@ -150,6 +155,6 @@ export default class App extends Component {
           parsePatterns={this.parsePatterns}
         />
       </View>
-    );
+    )
   }
 }

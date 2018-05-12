@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 import SpinKit from 'react-native-loading-spinner-overlay'
 
@@ -11,8 +11,8 @@ const Wrapper = styled.View`
 const Spinner = () => (
   <Wrapper>
     <SpinKit
-      visible={true}
-      textContent={'読み込み中'}
+      visible
+      textContent="読み込み中"
       textStyle={{ color: '#fff' }}
       overlayColor="rgba(0, 0, 0, .1)"
       size="large"

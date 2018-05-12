@@ -1,8 +1,7 @@
 // @flow
 
-import axios from 'axios'
 import { delay } from 'redux-saga'
-import { fork, put, take, call, select, takeLatest, takeEvery } from 'redux-saga/effects'
+import { put, call, takeLatest } from 'redux-saga/effects'
 import * as actions from '../actions'
 import type { Rooms } from '../types'
 import API from '../fetchr/ChatSampleServer'
@@ -18,5 +17,6 @@ function* roomsTask(action): any {
 }
 
 export default function* rootSaga(): any {
+  /* eslint no-underscore-dangle: [0] */
   yield takeLatest(actions.fetchRooms._t, roomsTask)
 }

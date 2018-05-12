@@ -9,19 +9,13 @@ type Props = {
 }
 
 class MessageContainer extends Component<Props> {
-  static navigationOptions = (opt) => {
-    return {
-      title: opt.navigation.state.params.name
-    }
-  }
+  static navigationOptions = opt => ({
+    title: opt.navigation.state.params.name,
+  })
 
   render() {
     const { navigation } = this.props
-    return (
-      <Message
-        navigation={navigation}
-      />
-    )
+    return <Message navigation={navigation} />
   }
 }
 

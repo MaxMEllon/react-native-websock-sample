@@ -1,18 +1,7 @@
 // @flow
 
 import React from 'react'
-import {
-  Content,
-  List,
-  ListItem,
-  Left,
-  Body,
-  Right,
-  Thumbnail,
-  Text,
-} from 'native-base';
-
-import type { Rooms } from '../types'
+import { ListItem, Body, Right, Text } from 'native-base'
 
 type Props = {
   _id: number,
@@ -22,13 +11,7 @@ type Props = {
   onSelectRoom: (_id: number, name: string) => any,
 }
 
-const Room = ({
-  _id,
-  name,
-  leatestMessage,
-  time,
-  onSelectRoom,
-}: Props) => (
+const Room = ({ _id, name, leatestMessage, time, onSelectRoom }: Props) => (
   <ListItem avator button onPress={() => onSelectRoom(_id, name)}>
     <Body>
       <Text>{name}</Text>
