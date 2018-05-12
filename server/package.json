@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "run-p transpile:watch server:watch",
+    "transpile:watch": "babel --watch src --out-dir lib",
+    "server:watch": "pm2 kill && pm2 start app.json --env development --watch --no-daemon -f"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "express": "^4.16.3",
+    "pm2": "^2.10.3",
+    "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}

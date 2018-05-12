@@ -4,6 +4,7 @@
   "private": true,
   "main": "./client/index.js",
   "scripts": {
+    "start:server": "cd ./server && npm run start && cd ..",
     "start": "react-native-scripts start",
     "flow": "flow",
     "eject": "react-native-scripts eject",
@@ -36,3 +37,4 @@
     "react-test-renderer": "16.3.1"
   }
 }
+
