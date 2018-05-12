@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
+    "axios": "^0.18.0",
     "expo": "^27.0.1",
     "hard-reducer": "^2.0.2",
     "native-base": "^2.4.4",
@@ -37,4 +38,3 @@
     "react-test-renderer": "16.3.1"
   }
 }
-

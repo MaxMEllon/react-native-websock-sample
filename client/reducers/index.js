@@ -1,22 +1,27 @@
 // @flow
 
 import { createReducer } from 'hard-reducer'
-import * as actions from '../actions'
+import {
+  successFetchRooms,
+  failFetchRooms,
+} from '../actions'
 
 type State = {
-  value: number,
+  rooms: any,
 }
 
 const initialState: State = {
-  value: 0
+  rooms: null,
 }
 
-const reducer =
-  createReducer(initialState)
-    .case(actions.inc, (state, payload) => {
-      return {
-        value: state.value + payload
-      }
-    })
+const reducer = createReducer(initialState)
+  .case(successFetchRooms, (state, payload) => {
+    return {
+      rooms: payload.rooms,
+    }
+  })
+  .case(failFetchRooms, (state, payload) => {
+    return state
+  })
 
 export default reducer
