@@ -8,14 +8,14 @@ import {
 import type { Room, Rooms } from '../types'
 
 type State = {
-  rooms: ?Array<Room>,
+  rooms: Array<Room> | null,
 }
 
 const initialState: State = {
   rooms: null,
 }
 
-const reducer = createReducer(initialState)
+const reducer: Reducer<State> = createReducer(initialState)
   .case(successFetchRooms, (state: State, payload: Rooms) => {
     return {
       rooms: payload.rooms,

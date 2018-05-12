@@ -1,3 +1,5 @@
+// @flow
+
 import axios from 'axios'
 import { delay } from 'redux-saga'
 import { fork, put, take, call, select, takeLatest, takeEvery } from 'redux-saga/effects'
