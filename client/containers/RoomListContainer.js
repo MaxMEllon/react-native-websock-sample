@@ -1,10 +1,11 @@
 // @flow
 
 import React, { Component } from 'react'
-import { View } from 'react-native'
 import { connect } from 'react-redux'
+
 import RoomList from '../presenters/RoomList'
 import { fetchRooms } from '../actions'
+import Spinner from '../presenters/atoms/Spinner'
 
 type Rooms = {
   _id: number,
@@ -26,7 +27,7 @@ class RoomListContainer extends Component {
 
   render() {
     const { rooms } = this.props
-    if (rooms === null) return <View></View>
+    if (rooms === null) return <Spinner />
     return (
       <RoomList
         rooms={rooms}

@@ -7,7 +7,7 @@ import API from '../fetchr/ChatSampleServer'
 function* roomsTask(action) {
   try {
     const rooms = yield call(API.getRooms)
-    yield delay(1000)
+    yield delay(300)
     yield put(actions.successFetchRooms(rooms))
   } catch (e) {
     yield put(actions.failFetchRooms(e))
