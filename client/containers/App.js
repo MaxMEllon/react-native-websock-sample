@@ -1,14 +1,14 @@
 // @flow
 
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import Dashboard from '../presenters/Dashboard'
-import Chat from '../presenters/Chat'
+import { createStackNavigator } from 'react-navigation';
+import Message from '../presenters/Message'
+import RoomList from '../presenters/RoomList'
 
-export default StackNavigator({
-  Chat: { screen: Chat },
-  Dashboard: { screen: Dashboard },
+export default createStackNavigator({
+  RoomList: { screen: RoomList },
+  Message: { screen: Message },
 }, {
-  initalRouteName: Dashboard,
+  initalRouteName: RoomList,
 })
 
