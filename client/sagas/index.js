@@ -1,5 +1,3 @@
-// @flow
-
 import axios from 'axios'
 import { delay } from 'redux-saga'
 import { fork, put, take, call, select, takeLatest, takeEvery } from 'redux-saga/effects'
@@ -18,5 +16,5 @@ function* roomsTask(action): any {
 }
 
 export default function* rootSaga(): any {
-  yield takeLatest<string, any, any>(actions.fetchRooms._t, roomsTask)
+  yield takeLatest(actions.fetchRooms._t, roomsTask)
 }

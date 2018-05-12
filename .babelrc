@@ -1,8 +1,13 @@
 {
-  "presets": ["babel-preset-expo"],
+  "presets": [
+    "flow",
+    "babel-preset-expo"
+  ],
   "env": {
     "development": {
-      "plugins": ["transform-react-jsx-source"]
+      "plugins": [
+        "transform-react-jsx-source"
+      ]
     }
   }
 }

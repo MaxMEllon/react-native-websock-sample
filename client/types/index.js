@@ -11,7 +11,3 @@ export type Room = {
 export type Rooms = {
   rooms: Array<Room> 
 }
-
-export type ReducerState = {
-  rooms: ?Array<Room>,
-}

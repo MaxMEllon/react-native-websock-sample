@@ -1,13 +1,15 @@
 // @flow
 
-import { createReducer } from 'hard-reducer'
+import { createReducer, type Reducer, type ActionCreator } from 'hard-reducer'
 import {
   successFetchRooms,
   failFetchRooms,
 } from '../actions'
-import type { Rooms, ReducerState } from '../types'
+import type { Room, Rooms } from '../types'
 
-type State = ReducerState
+type State = {
+  rooms: ?Array<Room>,
+}
 
 const initialState: State = {
   rooms: null,
@@ -19,7 +21,8 @@ const reducer = createReducer(initialState)
       rooms: payload.rooms,
     }
   })
-  .case(failFetchRooms, (state: State, payload: Rooms) => {
+  .case(failFetchRooms, (state: State, payload: any) => {
+    alert(payload)
     return state
   })
 
