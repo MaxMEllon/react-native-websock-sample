@@ -6,10 +6,11 @@ import { connect } from 'react-redux'
 import RoomList from '../presenters/RoomList'
 import { fetchRooms } from '../actions'
 import Spinner from '../presenters/atoms/Spinner'
+import type { Rooms } from '../types'
 
 
 type Props = {
-  rooms: any,
+  rooms: Rooms,
   navigation: any,
   fetchRooms: Function,
 }
