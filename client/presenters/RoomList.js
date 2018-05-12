@@ -18,7 +18,7 @@ import type { Rooms } from '../types'
 
 type Props = {
   rooms: Rooms,
-  onSelectRooms: (_id: number, name: string) => any,
+  onSelectRoom: (_id: number, name: string) => any,
 }
 
 const RoomList = ({ rooms, onSelectRoom }: Props) => (
