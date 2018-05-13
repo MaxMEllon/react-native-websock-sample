@@ -6,6 +6,7 @@ import type { Room, Rooms, Message, User } from '../types'
 
 type Socket = {
   instance: any,
+  eventRegistered: bool,
 }
 
 type State = {
