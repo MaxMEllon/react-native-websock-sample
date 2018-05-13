@@ -1,6 +1,6 @@
 const express = require('express')
-const io = require('socket.io')(http)
 const http = require('http').Server()
+const io = require('socket.io')(http)
 
 const app = express()
 
@@ -13,8 +13,30 @@ app.use((req, res, next) => {
 
 app.options('*', (req, res) => res.sendStatus(200))
 
+const users = {}
+
 io.on('connection', socket => {
-  console.log('hoge')
+  users[socket.id] = socket
+  socket.emit('user/join', {
+    _id: socket.id,
+    name: socket.id,
+    avatar: 'https://placeimg.com/140/140/any',
+  }, data => console.log(data))
+  socket.on('message/to-server', payload => {
+    io.sockets.emit('message/sync', payload)
+    setTimeout(() => {
+      io.sockets.emit('message/sync', {
+        _id: Math.random() * 100000,
+        text: 'maxmellon です',
+        createdAt: new Date(),
+        user: {
+          _id: 2222,
+          name: 'maxmellon',
+          avatar: 'https://placeimg.com/140/140/any',
+        }
+      })
+    }, 2000)
+  })
 })
 
 app.get('/rooms', (req, res) => {
@@ -42,10 +64,10 @@ app.get('/rooms', (req, res) => {
           leatestMessage: '最新のメッセージ',
           time: '4:35 pm',
         },
-      ]
-    })
+      ],
+    }),
   )
 })
 
-http.listen(8080, () => console.log(`listening on *:8080`))
-app.listen(4000, () => console.log(`listening on *:4000`))
+app.listen(4000, () => console.log('listening on *:4000'))
+http.listen(3000, () => console.log('listening on *:3000'))

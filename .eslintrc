@@ -9,6 +9,9 @@
       "jsx": true
     }
   },
+  "globals": {
+    "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__": false
+  },
   "parser": "babel-eslint",
   "env": {
     "browser": true,
