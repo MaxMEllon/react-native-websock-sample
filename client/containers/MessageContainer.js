@@ -2,12 +2,13 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Message from '../presenters/Message'
+import MessageComponent from '../presenters/Message'
 import { postMessage, connectSocketServer, disconnectSocketServer } from '../actions'
-import type { User } from '../types'
+import type { User, Message } from '../types'
 
 type Props = {
   my: User,
+  messages: Array<Message>,
   postMessage: any,
   connectSocketServer: any,
   disconnectSocketServer: any,
@@ -28,7 +29,7 @@ class MessageContainer extends Component<Props> {
 
   render() {
     const { messages, postMessage, my } = this.props
-    return <Message messages={messages} my={my} onSend={postMessage} />
+    return <MessageComponent messages={messages} my={my} onSend={postMessage} />
   }
 }
 

@@ -15,6 +15,7 @@ export type Rooms = {
 export type User = {
   _id: number,
   name: string,
+  avatar?: string,
 }
 
 export type Message = {

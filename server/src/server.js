@@ -33,7 +33,7 @@ io.on('connection', socket => {
           _id: 2222,
           name: 'maxmellon',
           avatar: 'https://placeimg.com/140/140/any',
-        }
+        },
       })
     }, 2000)
   })
