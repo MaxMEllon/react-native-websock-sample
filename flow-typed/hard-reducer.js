@@ -1,14 +1,14 @@
 /* @flow */
 
 declare module 'hard-reducer' {
-  declare type Action<T> = {
+  declare export type Action<T> = {
     type: string,
     payload: T,
   }
 
-  declare type ActionCreator<Input, Payload = Input> = (Input) => Action<Payload>
+  declare export type ActionCreator<Input, Payload = Input> = Input => Action<Payload>
 
-  declare type Reducer<State> = {
+  declare export type Reducer<State> = {
     (State, Action<*>): State,
     get: () => Reducer<State>,
     case<Input, Payload>(

@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import RoomList from '../presenters/RoomList'
 import { fetchRooms } from '../actions'
 import Spinner from '../presenters/atoms/Spinner'
@@ -11,7 +10,7 @@ import type { Rooms } from '../types'
 type Props = {
   rooms: Rooms,
   navigation: any,
-  fetchRooms: Function,
+  fetchRooms: any,
 }
 
 class RoomListContainer extends Component<Props> {

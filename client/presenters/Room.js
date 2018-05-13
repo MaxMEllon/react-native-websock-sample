@@ -2,16 +2,13 @@
 
 import React from 'react'
 import { ListItem, Body, Right, Text } from 'native-base'
+import type { Room } from '../types'
 
-type Props = {
-  _id: number,
-  name: string,
-  leatestMessage: string,
-  time: string,
+type Props = Room & {
   onSelectRoom: (_id: number, name: string) => any,
 }
 
-const Room = ({ _id, name, leatestMessage, time, onSelectRoom }: Props) => (
+const RoomComponent = ({ _id, name, leatestMessage, time, onSelectRoom }: Props) => (
   <ListItem avator button onPress={() => onSelectRoom(_id, name)}>
     <Body>
       <Text>{name}</Text>
@@ -23,4 +20,4 @@ const Room = ({ _id, name, leatestMessage, time, onSelectRoom }: Props) => (
   </ListItem>
 )
 
-export default Room
+export default RoomComponent
