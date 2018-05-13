@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import styled from 'styled-components/native'
 import SpinKit from 'react-native-loading-spinner-overlay'

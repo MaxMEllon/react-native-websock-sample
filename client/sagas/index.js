@@ -34,6 +34,19 @@ function* messageTask(): any {
     )
   })
 
+  yield takeLatest(actions.disconnectSocketServer._t, function* socketDisconnectTask() {
+    const { socket } = yield select()
+    socket.instance.disconnect()
+    yield put(
+      actions.storedSocketInstance({
+        socket: {
+          instance: null,
+          eventRegistered: false,
+        },
+      }),
+    )
+  })
+
   yield takeLatest(actions.postMessage._t, function* postMessageTask(actions) {
     const { socket } = yield select()
     const { payload } = actions
