@@ -2,15 +2,15 @@
 
 ![](./.github/demo.gif)
 
-## environment
+## Environment
 
-- react-native (expo) generate by create-react-native-app
+- react-native: *(expo) generate by create-react-native-app*
   - react-native-gifted-chat
   - react-navigation
   - native-base
-- reudx
-  - hard-reducer *type safe reducer with flow*
-  - redux-saga *alternative side effect model for Redux*
+- redux
+  - hard-reducer: *type safe reducer with flow*
+  - redux-saga: *alternative side effect model for Redux*
   - react-redux
 - socket.io
 - flow
