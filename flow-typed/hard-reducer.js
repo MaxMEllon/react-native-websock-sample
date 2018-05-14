@@ -18,15 +18,12 @@ declare module 'hard-reducer' {
     else((State, Action<*>) => State): Reducer<State>,
   }
 
-  declare module.exports: {
-    buildActionCreator: (
-      ?{ prefix?: string },
-    ) => {
-      createAction<Input, Payload>(
-        t?: string | void,
-        fn?: (Input) => Payload,
-      ): ActionCreator<Input, Payload>,
-    },
-    createReducer: <T>(T) => Reducer<T>,
+  declare export function createReducer<T>(initalState: T): Reducer<T>
+
+  declare export function buildActionCreator(?{ prefix?: string }): {
+    createAction<Input, Payload>(
+      t?: string | void,
+      fn?: (Input) => Payload,
+    ): ActionCreator<Input, Payload>,
   }
 }

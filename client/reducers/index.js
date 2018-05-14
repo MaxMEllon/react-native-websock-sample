@@ -1,7 +1,7 @@
 // @flow
 /* eslint no-underscore-dangle: [0]  */
 
-import { createReducer, type Reducer } from 'hard-reducer'
+import { createReducer } from 'hard-reducer'
 import type { Socket } from 'socket.io-client'
 import * as actions from '../actions'
 import type { Room, Rooms, Message, User } from '../types'
@@ -28,7 +28,7 @@ const initialState: State = {
   my: null,
 }
 
-const reducer: Reducer<State> = createReducer(initialState)
+const reducer = createReducer(initialState)
   // rooms
   .case(actions.successFetchRooms, (state: State, payload: Rooms) =>
     Object.assign({}, state, { rooms: payload.rooms }),
